@@ -1,0 +1,89 @@
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* BACKGROUND */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-image: url(../media/audi-a7.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #2e3436;
+}
+
+.relative { position: relative }
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* LOGO */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+#audi-logo {
+    position: fixed;
+    bottom: 10%;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+
+    width: 140px;
+    height: 80px;
+
+    background-image: url(../media/audi-logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* DOOR LOCK INDICATOR */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+#door-indicator {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    background: red;
+}
+
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+/* DOOR LOCK GUI */
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+#door-menu {
+    position: fixed;
+    bottom: 36%;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+}
+#door-open,
+#door-close {
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 30px;
+    width: 150px;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 64px;
+    border: 0;
+    outline: 0;
+    font-family: "Helvetica Neue";
+}
+#door-open:active,
+#door-close:active {
+    box-shadow:
+        0px 0px 20px 1px rgba(0,0,0,0.9),
+        inset 0px -14px 0px -10px #04dba3;
+}
+#door-open {
+    border-radius: 500px;
+    background-color: #fff;
+    color: #f45245;
+}
+#door-close {
+    border-radius: 500px;
+    background-color: #f45245;
+    color: #fff;
+}
+
