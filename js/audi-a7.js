@@ -2,6 +2,7 @@
 // DOOR LOCK INDICATOR
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 var channel = 'smart-car'
+,   ready   = false
 ,   pubnub  = PUBNUB({
     publish_key   : 'pub-c-b6b25975-7d5a-4323-9bfe-308f40a6c5a0',
     subscribe_key : 'sub-c-8cc85050-9705-11e4-a07f-02ee2ddab7fe'
@@ -12,7 +13,8 @@ var channel = 'smart-car'
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 pubnub.subscribe({
     channel : channel,
-    message : receiver
+    message : receiver,
+    connect : function() { ready = true }
 });
 
 function receiver(message) {
@@ -42,14 +44,14 @@ var door_lock      = PUBNUB.$('door-lock')
 ,   door_indicator = PUBNUB.$('door-indicator');
 
 PUBNUB.bind( 'mousedown,touchstart', door_lock, function(e) {
+    if (!ready) return;
     set_indicator( 'circle-o-notch fa-spin', 5000 );
     send_command({ action : 'lock' });
-    return true;
 } );
 PUBNUB.bind( 'mousedown,touchstart', door_unlock, function(e) {
+    if (!ready) return;
     set_indicator( 'circle-o-notch fa-spin', 5000 );
     send_command({ action : 'unlock-alt' });
-    return true;
 } );
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
